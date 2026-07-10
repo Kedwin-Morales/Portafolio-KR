@@ -8,6 +8,17 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Code Quality
+
+Run linting and formatting:
+
+```sh
+npm run lint      # Check ESLint errors
+npm run lint:fix  # Auto-fix ESLint errors
+npm run format    # Format with Prettier
+npm run format:check # Check Prettier formatting
+```
+
 ## Documentation
 
 Full documentation: https://docs.astro.build
