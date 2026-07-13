@@ -1,0 +1,29 @@
+---
+import { Sun, Moon } from '../icons';
+---
+
+<button
+  id="theme-toggle"
+  class="p-2 rounded-lg text-texto hover:bg-bordes/50 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+  aria-label="Cambiar tema"
+>
+  <Sun class="w-5 h-5 hidden dark:hidden" />
+  <Moon class="w-5 h-5 dark:block hidden" />
+</button>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+
+  const currentTheme = localStorage.getItem('theme') || 'light';
+
+  if (currentTheme === 'dark') {
+    html.classList.add('dark');
+  }
+
+  toggle?.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    const isDark = html.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>

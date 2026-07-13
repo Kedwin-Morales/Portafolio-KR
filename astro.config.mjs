@@ -7,6 +7,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://kedwin.dev',
+  output: 'static',
+
   vite: {
     plugins: [tailwindcss()],
   },

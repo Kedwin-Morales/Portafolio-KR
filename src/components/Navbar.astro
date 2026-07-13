@@ -1,0 +1,82 @@
+---
+import Container from './ui/Container.astro';
+import ThemeToggle from './ui/ThemeToggle.astro';
+import { siteConfig } from '../lib/data';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-bg/80 backdrop-blur-sm border-b border-bordes">
+  <Container class="py-4">
+    <nav class="flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-texto" aria-label="Inicio">
+        {siteConfig.name.split(' ')[0]}<span class="text-primary">.</span>
+      </a>
+
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#inicio" class="nav-link text-texto hover:text-primary transition-colors">Inicio</a
+        >
+        <a href="#sobre-mi" class="nav-link text-texto hover:text-primary transition-colors"
+          >Sobre mí</a
+        >
+        <a href="#experiencia" class="nav-link text-texto hover:text-primary transition-colors"
+          >Experiencia</a
+        >
+        <a href="#proyectos" class="nav-link text-texto hover:text-primary transition-colors"
+          >Proyectos</a
+        >
+        <a href="#habilidades" class="nav-link text-texto hover:text-primary transition-colors"
+          >Habilidades</a
+        >
+        <a href="#educacion" class="nav-link text-texto hover:text-primary transition-colors"
+          >Educación</a
+        >
+        <a href="#certificaciones" class="nav-link text-texto hover:text-primary transition-colors"
+          >Certificaciones</a
+        >
+        <a href="#contacto" class="nav-link text-texto hover:text-primary transition-colors"
+          >Contacto</a
+        >
+      </div>
+
+      <ThemeToggle />
+    </nav>
+  </Container>
+</header>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.remove('text-primary', 'font-semibold');
+            const href = link.getAttribute('href');
+            if (href === `#${entry.target.id}`) {
+              link.classList.add('text-primary', 'font-semibold');
+            }
+          });
+        }
+      });
+    },
+    { rootMargin: '-40% 0px -40% 0px' }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>
+
+<style>
+  .nav-link {
+    position: relative;
+  }
+  .nav-link.font-semibold::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+  }
+</style>

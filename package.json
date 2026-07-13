@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@motionone/dom": "^10.18.0",
     "@tailwindcss/vite": "^4.3.2",
     "astro": "^7.0.7",
     "tailwindcss": "^4.3.2"

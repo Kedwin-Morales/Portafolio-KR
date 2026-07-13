@@ -1,0 +1,57 @@
+---
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import { projects } from '../../lib/data';
+---
+
+<section id="proyectos" class="bg-theme reveal-on-scroll">
+  <Container>
+    <SectionTitle>Proyectos</SectionTitle>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {
+        projects.map((project) => (
+          <article class="group rounded-xl overflow-hidden border border-bordes bg-bg transition-all duration-300 hover:shadow-lg">
+            <div class="aspect-video overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.name}
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-texto mb-2">{project.name}</h3>
+              <p class="text-secondary mb-4">{project.description}</p>
+
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.technologies.map((tech) => (
+                  <span class="text-xs font-mono bg-bordes/50 text-secondary px-2 py-1 rounded">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <ul class="space-y-2 mb-4">
+                {project.features.map((feature) => (
+                  <li class="text-sm text-secondary flex items-start">
+                    <span class="text-primary mr-2">▸</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={project.link}
+                class="inline-block text-primary font-mono text-sm hover:underline focus:outline-none focus:underline"
+              >
+                Ver proyecto →
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,28 @@
+---
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import { certifications } from '../../lib/data';
+---
+
+<section id="certificaciones" class="bg-theme reveal-on-scroll">
+  <Container>
+    <SectionTitle>Certificaciones</SectionTitle>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        certifications.map((cert) => (
+          <article class="border border-bordes rounded-lg p-6 bg-bg transition-all duration-300 hover:border-primary/50">
+            <h3 class="text-lg font-bold text-texto mb-2">{cert.name}</h3>
+            <p class="font-mono text-sm text-primary mb-1">{cert.provider}</p>
+            <p class="text-secondary text-sm font-mono">{cert.duration}</p>
+            <span
+              class={`inline-block mt-3 px-2 py-1 text-xs font-mono rounded ${cert.status === 'Culminado' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'}`}
+            >
+              {cert.status}
+            </span>
+          </article>
+        ))
+      }
+    </div>
+  </Container>
+</section>

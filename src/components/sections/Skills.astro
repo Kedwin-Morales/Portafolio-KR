@@ -1,0 +1,91 @@
+---
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import { skills } from '../../lib/data';
+---
+
+<section id="habilidades" class="bg-theme reveal-on-scroll">
+  <Container>
+    <SectionTitle>Habilidades</SectionTitle>
+
+    <div class="space-y-8">
+      <div>
+        <h3 class="text-lg font-bold text-texto mb-4 font-mono">Backend</h3>
+        <div class="flex flex-wrap gap-3">
+          {
+            skills.backend.map((skill) => (
+              <span class="px-4 py-2 text-sm font-mono bg-primary/10 text-primary rounded-lg transition-all duration-200 hover:bg-primary/20 hover:scale-105">
+                {skill}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-bold text-texto mb-4 font-mono">Frontend</h3>
+        <div class="flex flex-wrap gap-3">
+          {
+            skills.frontend.map((skill) => (
+              <span class="px-4 py-2 text-sm font-mono bg-primary/10 text-primary rounded-lg transition-all duration-200 hover:bg-primary/20 hover:scale-105">
+                {skill}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-bold text-texto mb-4 font-mono">Bases de datos</h3>
+        <div class="flex flex-wrap gap-3">
+          {
+            skills.databases.map((skill) => (
+              <span class="px-4 py-2 text-sm font-mono bg-primary/10 text-primary rounded-lg transition-all duration-200 hover:bg-primary/20 hover:scale-105">
+                {skill}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-bold text-texto mb-4 font-mono">Cloud</h3>
+        <div class="flex flex-wrap gap-3">
+          {
+            skills.cloud.map((skill) => (
+              <span class="px-4 py-2 text-sm font-mono bg-primary/10 text-primary rounded-lg transition-all duration-200 hover:bg-primary/20 hover:scale-105">
+                {skill}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-bold text-texto mb-4 font-mono">Herramientas</h3>
+        <div class="flex flex-wrap gap-3">
+          {
+            skills.tools.map((skill) => (
+              <span class="px-4 py-2 text-sm font-mono bg-primary/10 text-primary rounded-lg transition-all duration-200 hover:bg-primary/20 hover:scale-105">
+                {skill}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-bold text-texto mb-4 font-mono">Arquitectura</h3>
+        <div class="flex flex-wrap gap-3">
+          {
+            skills.architecture.map((skill) => (
+              <span class="px-4 py-2 text-sm font-mono bg-primary/10 text-primary rounded-lg transition-all duration-200 hover:bg-primary/20 hover:scale-105">
+                {skill}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

@@ -1,2 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @tailwind utilities;
+
+:root {
+  --color-bg: #ffffff;
+  --primary: #0ea5e9;
+  --secondary: #64748b;
+  --texto: #1e293b;
+  --bordes: #e2e8f0;
+}
+
+:root.dark {
+  --color-bg: #0f172a;
+  --primary: #38bdf8;
+  --secondary: #94a3b8;
+  --texto: #f1f5f9;
+  --bordes: #1e293b;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--texto);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .text-primary {
+    color: var(--primary);
+  }
+
+  .text-secondary {
+    color: var(--secondary);
+  }
+
+  .border-theme {
+    border-color: var(--bordes);
+  }
+
+  .bg-theme {
+    background-color: var(--color-bg);
+  }
+
+  .reduce-motion {
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

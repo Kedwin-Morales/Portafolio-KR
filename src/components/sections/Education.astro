@@ -1,0 +1,18 @@
+---
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import { education } from '../../lib/data';
+---
+
+<section id="educacion" class="bg-theme reveal-on-scroll">
+  <Container>
+    <SectionTitle>Educación</SectionTitle>
+
+    <div class="border-l-2 border-primary pl-6">
+      <h3 class="text-xl font-bold text-texto mb-1">{education.institution}</h3>
+      <p class="font-mono text-sm text-primary mb-2">{education.degree}</p>
+      <p class="text-secondary">{education.period}</p>
+      <p class="text-secondary font-mono text-sm mt-1">{education.location}</p>
+    </div>
+  </Container>
+</section>

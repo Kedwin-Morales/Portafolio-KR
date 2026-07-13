@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kedwin.dev/sitemap.xml

@@ -1,0 +1,19 @@
+---
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import { profile } from '../../lib/data';
+---
+
+<section id="sobre-mi" class="bg-theme reveal-on-scroll">
+  <Container>
+    <SectionTitle>Sobre mí</SectionTitle>
+    <div class="max-w-3xl">
+      <p class="text-lg text-secondary leading-relaxed mb-4">
+        {profile.summary}
+      </p>
+      <p class="text-lg text-secondary leading-relaxed">
+        {profile.experience}
+      </p>
+    </div>
+  </Container>
+</section>

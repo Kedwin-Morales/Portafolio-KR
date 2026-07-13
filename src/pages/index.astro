@@ -1,17 +1,85 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ScrollTopButton from '../components/ui/ScrollTopButton.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import ExperienceTabs from '../components/sections/ExperienceTabs.astro';
+import Projects from '../components/sections/Projects.astro';
+import Skills from '../components/sections/Skills.astro';
+import Education from '../components/sections/Education.astro';
+import Certifications from '../components/sections/Certifications.astro';
+import Contact from '../components/sections/Contact.astro';
+import { siteConfig } from '../lib/data';
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href="https://kedwin.dev" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+
+    <title>{siteConfig.name} - {siteConfig.title}</title>
+    <meta name="description" content={siteConfig.title} />
+
+    <meta property="og:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
+    <meta
+      property="og:description"
+      content="Desarrollador Full Stack .NET especializado en C# y Blazor"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kedwin.dev" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
+    <meta
+      name="twitter:description"
+      content="Desarrollador Full Stack .NET especializado en C# y Blazor"
+    />
   </head>
   <body>
-    <h1 class="text-amber-300 text-xl">Astro</h1>
+    <Navbar />
+    <main>
+      <Hero />
+      <About />
+      <ExperienceTabs />
+      <Projects />
+      <Skills />
+      <Education />
+      <Certifications />
+      <Contact />
+    </main>
+    <Footer />
+    <ScrollTopButton />
+    <script client:load>
+      import { animate, inView } from '@motionone/dom';
+
+      document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+        inView(
+          el,
+          {
+            once: true,
+          },
+          (info) => {
+            if (info.inView) {
+              animate(
+                el,
+                {
+                  opacity: [0, 1],
+                  transform: ['translateY(20px)', 'translateY(0px)'],
+                },
+                {
+                  duration: 0.5,
+                  easing: 'ease-out',
+                }
+              );
+            }
+          }
+        );
+      });
+    </script>
   </body>
 </html>

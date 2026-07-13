@@ -1,0 +1,56 @@
+---
+import Container from '../ui/Container.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
+import Button from '../ui/Button.astro';
+import { siteConfig } from '../../lib/data';
+---
+
+<section id="contacto" class="bg-theme reveal-on-scroll">
+  <Container>
+    <SectionTitle>Contacto</SectionTitle>
+
+    <div class="max-w-2xl">
+      <p class="text-secondary mb-8">
+        ¿Interesado en trabajar juntos? Contáctame y conversemos sobre tu proyecto.
+      </p>
+
+      <div class="space-y-4 mb-8">
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-sm text-primary">Email:</span>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            class="text-texto hover:text-primary transition-colors"
+          >
+            {siteConfig.email}
+          </a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-sm text-primary">LinkedIn:</span>
+          <a
+            href={siteConfig.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-texto hover:text-primary transition-colors"
+          >
+            linkedin.com/in/kedwin-morales
+          </a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-sm text-primary">GitHub:</span>
+          <a
+            href={siteConfig.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-texto hover:text-primary transition-colors"
+          >
+            github.com/Kedwin-Morales
+          </a>
+        </div>
+      </div>
+
+      <Button href="/(CV)KedwinMorales.pdf">Descargar CV</Button>
+    </div>
+  </Container>
+</section>
