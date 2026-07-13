@@ -4,7 +4,7 @@ import Button from '../ui/Button.astro';
 import { siteConfig } from '../../lib/data';
 ---
 
-<section id="inicio" class="min-h-screen flex items-center pt-20 bg-theme">
+<section id="inicio" class="min-h-screen flex items-center pt-2">
   <Container>
     <div class="flex flex-col md:flex-row items-center gap-12 hero-content">
       <div class="flex-1 text-center md:text-left">
@@ -20,7 +20,7 @@ import { siteConfig } from '../../lib/data';
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <Button href="#contacto" variant="primary">Contacto</Button>
+          <Button href="#contacto" class='btn1' variant="outline">Contacto</Button>
           <Button href="/(CV)KedwinMorales.pdf" variant="outline">Descargar CV</Button>
         </div>
 
@@ -85,7 +85,7 @@ import { siteConfig } from '../../lib/data';
 </section>
 
 <script>
-  import { animate, inView } from '@motionone/dom';
+  import { animate } from '@motionone/dom';
 
   const heroContent = document.querySelector('.hero-content');
 
